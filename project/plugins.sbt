@@ -1,6 +1,9 @@
 // The Play plugin
 addSbtPlugin("com.typesafe.play" % "sbt-plugin" % "2.5.0")
 
+//resolvers += Resolver.url("Artifactory Online", url("http://repo.scala-sbt.org/scalasbt/repo"))(Resolver.ivyStylePatterns)
+//addSbtPlugin("com.trafficland" % "sbt-plugins" % "0.8.0")
+
 // Web plugins
 addSbtPlugin("com.typesafe.sbt" % "sbt-coffeescript" % "1.0.0")
 addSbtPlugin("com.typesafe.sbt" % "sbt-less" % "1.1.0")
@@ -22,3 +25,4 @@ addSbtPlugin("com.typesafe.sbt" % "sbt-play-enhancer" % "1.1.0")
 // Play Ebean support, to enable, uncomment this line, and enable in your build.sbt using
 // enablePlugins(PlayEbean).
 addSbtPlugin("com.typesafe.sbt" % "sbt-play-ebean" % "2.0.0")
+addSbtPlugin("de.johoop" % "sbt-testng-plugin" % "3.0.2")
