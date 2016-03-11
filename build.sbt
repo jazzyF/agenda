@@ -17,17 +17,28 @@ libraryDependencies ++= Seq(
   cache,
   javaWs
 )
+
+/*
+libraryDependencies ++= Seq(
+  "org.testng" % "testng" % "6.9.10",
+  "de.johoop" % "sbt-testng-interface_2.10" % "3.0.0",
+  "org.scalatest" %% "scalatest" % "2.2.1",
+  "org.scalatestplus" %% "play" % "1.4.0-M4"
+)
+*/
+
 libraryDependencies += "org.mockito" % "mockito-core" % "1.10.19"
-libraryDependencies += "org.testng" % "testng" % "6.9.10"
+//libraryDependencies += "org.testng" % "testng" % "6.9.10"
 libraryDependencies += "org.easytesting" % "fest-assert-core" % "2.0M10"
 
-
+/*
 import de.johoop.testngplugin.TestNGPlugin._
 
 lazy val testNGVersion = settingKey[Unit]("6.9.10")
 lazy val testNGOutputDirectory = settingKey[Unit]("target/testng")
 lazy val testNGParameters = Seq()
 lazy val testNGSuites = Seq("src/test/resources/testng.xml")
+*/
 
 //import trafficland.opensource.sbt.plugins._
 

@@ -2,10 +2,11 @@ package controllers;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
+import static play.mvc.Http.Status.NOT_FOUND;
 import static play.mvc.Http.Status.OK;
+import static play.test.Helpers.GET;
 import static play.test.Helpers.contentAsString;
-import static play.test.Helpers.fakeApplication;
-import static play.test.Helpers.inMemoryDatabase;
+import static play.test.Helpers.fakeRequest;
 import static play.test.Helpers.route;
 import static play.test.Helpers.running;
 
@@ -17,8 +18,8 @@ import play.mvc.Result;
 public class AgendaTest {
 
 	@Test
-	public void test() {
-		running(fakeApplication(inMemoryDatabase()), new Runnable() {
+	public void testListAsAction() {
+		running(play.test.Helpers.fakeApplication(), new Runnable() {
 			@Override
 			public void run() {
 				String name = "Jack";
@@ -33,6 +34,28 @@ public class AgendaTest {
 				assertEquals(OK, result.status());
 				assertEquals(result.contentType().get(), "text/html");
 				assertTrue(contentAsString(result).contains(contact.name));
+			}
+		});
+	}
+	
+	@Test
+	public void testNewContactRoute() {
+		running(play.test.Helpers.fakeApplication(), new Runnable() {
+			@Override
+			public void run() {
+				Result result = route(fakeRequest(GET, "/contact/new"));
+				assertEquals(result.status(), OK);
+			}
+		});
+	}
+	
+	@Test
+	public void testInvalidRoute() {
+		running(play.test.Helpers.fakeApplication(), new Runnable() {
+			@Override
+			public void run() {
+				Result result = route(fakeRequest(GET, "/abracada/bra"));
+				assertEquals(result.status(), NOT_FOUND);
 			}
 		});
 	}

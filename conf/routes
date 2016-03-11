@@ -4,15 +4,14 @@
 
 # An example controller showing a sample home page
 # GET     /                           controllers.HomeController.index
-# GET       /                          controllers.Application.index()
+# GET     /                          controllers.Application.index()
 
-GET     /                           controllers.Agenda.list()
+GET      /contacts                   controllers.Agenda.list()
 
+GET       /contacts/:id              controllers.Agenda.show(id : Long)
 
-GET       /contacts/:id               controllers.Agenda.show(id : Long)
-GET       /contacts                   controllers.Agenda.newContact()
-GET       /contacts/new               controllers.Agenda.newContact()
-POST      /contacts/post              controllers.Agenda.createContact()
+GET       /contact/new               controllers.Agenda.newContact()
+POST      /contact/create            controllers.Agenda.createContact()
 
 # An example controller showing how to use dependency injection
 # GET     /count                      controllers.CountController.count
