@@ -37,25 +37,23 @@ public class AgendaTest {
 			}
 		});
 	}
-	
+
 	@Test
 	public void testNewContactRoute() {
 		running(play.test.Helpers.fakeApplication(), new Runnable() {
 			@Override
 			public void run() {
-				Result result = route(fakeRequest(GET, "/contact/new"));
-				assertEquals(result.status(), OK);
+				assertEquals(route(fakeRequest(GET, "/contact/new")).status(), OK);
 			}
 		});
 	}
-	
+
 	@Test
 	public void testInvalidRoute() {
 		running(play.test.Helpers.fakeApplication(), new Runnable() {
 			@Override
 			public void run() {
-				Result result = route(fakeRequest(GET, "/abracada/bra"));
-				assertEquals(result.status(), NOT_FOUND);
+				assertEquals(route(fakeRequest(GET, "/abracada/bra")).status(), NOT_FOUND);
 			}
 		});
 	}
